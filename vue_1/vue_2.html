@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>基本命令</title>
+    <script src="../src/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <input type="text" name="" v-on:input="inputHandle">
+    <p>    {{message}}    </p>
+    <p v-bind:title="message">{{message}}</p>
+</div>
+<script>
+    /*
+    * vue指令
+    * v-bind : 属性名=表达式
+    * <p v-bind:title="message"></p>
+    * */
+
+    /*
+    vue 事件绑定
+    使用指令绑定
+    v-on : 事件名=表达式
+                数据 -> 页面
+				页面 -> 数据
+    * */
+    let message = "hello";
+    let vm = new Vue({
+        el:"#app",
+        data:{
+            message:message
+        },
+        methods:{
+            //定义方法
+            inputHandle(ev){
+                //方法中的this都指向实例
+                console.log(this === vm);
+                console.log(ev.target.value);
+                this.message = ev.target.value;
+            }
+        }
+    })
+</script>
+
+
+</body>
+</html>
