@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>study vue</title>
+    <script src="../src/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <p>{{message}}</p>
+    <p>生成数据</p>
+</div>
+<script>
+    let message = "hello vue";
+
+    let vm = new Vue({
+        el:"#app",
+        data:{
+            message:message
+        }
+    });
+    console.log(vm.message);
+</script>
+</body>
+
+</html>
