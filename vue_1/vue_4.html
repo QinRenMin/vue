@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数据双向绑定 v-model</title>
+    <script src="../src/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <input type="text" v-model="message" >
+    <input type="checkbox" v-model="checked">
+    <p>{{message}}</p>
+</div>
+<script>
+    let message = "hello";
+    let vm = new Vue({
+        el:"#app",
+        data:{
+            message:message,
+            checked:true
+        }
+    })
+</script>
+</body>
+</html>
