@@ -8,7 +8,9 @@
 <body>
 <div id="app">
 
-    <p>{{addMessage.a}}</p>
+    <p>原有：{{addMessage.a}}</p>
+    <!--<p>添加：{{addMessage.normal}}</p>-->
+
     <p>{{addMessage.text}}</p>
 </div>
 <script>
@@ -24,13 +26,14 @@
             }
         }
     });
+    //使用一般方法,更改属性，但是不能保存原有的属性
+    // vm.addMessage={normal:123};
 
     //这种方法不能添加未计划的数据
  // vm.addMessage.text="新加入的数据";//该数据无法加入
-
     //Object.assign(vm.addMessage,{name:value})
-    let o = Object.assign(vm.addMessage,{name:value});
-    console.log(o===vm.addMessage);//true,vue的机制当数值不发生改变时，默认不刷新
+    // let o = Object.assign(vm.addMessage,{name:value});
+    // console.log(o===vm.addMessage);//true,vue的机制当数值不发生改变时，默认不刷新
 
 
     //改写属性的数值，重新赋值，重新得到一个和原来名称相同的属性

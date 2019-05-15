@@ -14,6 +14,7 @@
 
     <p>{{addMessage.content}}</p>
     <p>{{addMessage.text}}</p>
+    <p>{{addMessage.normal}}</p>
 </div>
 <script>
     let message = "计划数据";
@@ -27,14 +28,15 @@
         }
     });
 
-    //这种方法不能添加未计划的数据
-    // vm.addMessage.content="新加入的数据";//该数据无法加入
+        //这种方法不能添加未计划的数据
+        // vm.addMessage.content="新加入的数据";//该数据无法加入
 
     //使用静态方法：Vue.set(target,prop,value)
     Vue.set(vm.addMessage,"content","使用静态方法set()加入的数据");
 
     //使用调用实例方法　$set(target,prop,value)
     vm.$set(vm.addMessage,"text","使用实例方法$set()加入的数据");
+
 
     //改写属性的数值，重新赋值，重新得到一个和原来名称相同的属性
     //使用Object.assign({},mv.addMessage,{name:value})
