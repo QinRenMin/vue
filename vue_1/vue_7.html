@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>v-for添加数据</title>
+    <script src="../src/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <input type="text" v-model="val">
+    <input type="button" value="添加"
+           v-on:click="sendHandle"
+    >
+    <ul>
+        <li v-for="item in list"> {{item.content}}</li>
+    </ul>
+</div>
+<script>
+    let list=[
+
+
+        {
+            id:"1",
+            content:"数据结构"
+        },
+        {
+            id:"2",
+            content:"数据挖掘"
+        }
+    ];
+    let vm = new Vue({
+        el:"#app",
+        data:{
+            list:list,
+            val:""
+        },
+        methods:{
+            sendHandle(){
+                console.log(this.val);
+                this.list.push({
+                    id:Date.now(),
+                    content:this.val
+                });
+                this.val="";
+            }
+        }
+    })
+
+</script>
+</body>
+</html>

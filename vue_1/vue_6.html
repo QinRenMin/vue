@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-for渲染数据列表</title>
+    <script src="../src/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <p>列表展示</p>
+    <ul>
+        <li v-for="item in list">{{item.content}}</li>
+    </ul>
+</div>
+<script>
+    let list = [
+
+    ];
+    let vm = new Vue({
+        el:"#app",
+        data:{
+            list:list
+        }
+    })
+    /*
+    list的数值开始为空，发送ajax请求后，获取数据，（异步请求）
+    使用setTimeout函数模拟该数据
+    * */
+    setTimeout(function () {
+        vm.list=[
+
+
+            {
+                id:"1",
+                content:"数据结构"
+            },
+            {
+                id:"2",
+                content:"数据挖掘"
+            }
+        ]
+    },2000)
+</script>
+</body>
+</html>
