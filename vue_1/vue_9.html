@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>assign方法添加相应的属性值</title>
+    <script src="../src/vue.js"></script>
+</head>
+<body>
+<div id="app">
+
+    <p>{{addMessage.a}}</p>
+    <p>{{addMessage.text}}</p>
+</div>
+<script>
+    let message = "计划数据";
+
+    let vm = new Vue({
+        el:"#app",
+        //只有计划好的数据才能做响应
+        data:{
+            message:message,
+            addMessage:{
+                a:123
+            }
+        }
+    });
+
+    //这种方法不能添加未计划的数据
+ // vm.addMessage.text="新加入的数据";//该数据无法加入
+
+    //Object.assign(vm.addMessage,{name:value})
+    let o = Object.assign(vm.addMessage,{name:value});
+    console.log(o===vm.addMessage);//true,vue的机制当数值不发生改变时，默认不刷新
+
+
+    //改写属性的数值，重新赋值，重新得到一个和原来名称相同的属性
+    //使用Object.assign({},mv.addMessage,{name:value})
+    vm.addMessage = Object.assign({},vm.addMessage,{text:"使用assign添加的数据"})
+</script>
+</body>
+</html>
+

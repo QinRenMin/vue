@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>对象的响应数据变化</title>
+    <script src="../src/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <p>{{message}}</p>
+
+    <!--<p>{{a}}</p>-->
+    <!--该数据未计划定义，无法显示-->
+
+    <p>{{addMessage.content}}</p>
+    <p>{{addMessage.text}}</p>
+</div>
+<script>
+    let message = "计划数据";
+
+    let vm = new Vue({
+        el:"#app",
+        //只有计划好的数据才能做响应
+        data:{
+            message:message,
+            addMessage:{}
+        }
+    });
+
+    //这种方法不能添加未计划的数据
+    // vm.addMessage.content="新加入的数据";//该数据无法加入
+
+    //使用静态方法：Vue.set(target,prop,value)
+    Vue.set(vm.addMessage,"content","使用静态方法set()加入的数据");
+
+    //使用调用实例方法　$set(target,prop,value)
+    vm.$set(vm.addMessage,"text","使用实例方法$set()加入的数据");
+
+    //改写属性的数值，重新赋值，重新得到一个和原来名称相同的属性
+    //使用Object.assign({},mv.addMessage,{name:value})
+
+</script>
+</body>
+</html>
