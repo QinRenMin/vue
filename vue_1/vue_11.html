@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>条件判断</title>
+    <script src="../src/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <p v-if="true" style="background-color: blue">{{message}}</p>
+    <p v-if="false" style="background-color: yellow">{{message}}</p>
+    <p v-show="true" style="background-color: red">{{message}}</p>
+    <p v-show="false" style="background-color: orangered">{{message}}</p>
+</div>
+<script>
+    let vm  = new Vue({
+        el:"#app",
+        data:{
+            message:"数据"
+        }
+    })
+    //条件表达式
+    //v-if =　"表达式" 没有该元素
+    //v-show = "表达式"　p display:none
+</script>
+</body>
+</html>

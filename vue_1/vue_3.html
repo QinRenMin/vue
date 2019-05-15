@@ -10,6 +10,7 @@
     <input type="text" v-model="message">
     <input type="checkbox" v-model="checked">
     <p>{{message}}</p>
+    <p>{{checked}}</p>
 </div>
 <script>
     let message = "hello";
@@ -19,7 +20,8 @@
             message:message,
             checked:true
         }
-    })
+    });
+
 </script>
 </body>
 </html>
