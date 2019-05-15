@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数组的数据响应变化</title>
+    <script src="../src/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <p>{{list}}</p>
+</div>
+<script>
+    let vm = new Vue({
+        el:"#app",
+        data:{
+            list:[1,2,3]
+        }
+    });
+    /*
+        数组的变异方法：
+        push(),pop(),shift(),unshift(),splice(),sort(),reverse()，会改变数组并更新视图
+
+    * */
+
+    /*
+        原数组未变，生成新数组
+        slice
+        concat
+        filter
+        map
+    **/
+
+    //使用数组下标以及length方法无法更改数组以及触发视图更新
+    vm.list.length = 1;
+    vm.list[0] = 2;
+    vm.list.push(6);
+    vm.list = vm.list.map((item) => item*2);
+    vm.list.splice(0,1,"aaa");
+</script>
+</body>
+</html>
