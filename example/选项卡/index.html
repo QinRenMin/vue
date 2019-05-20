@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml" xmlns:v-for="http://www.w3.org/1999/xhtml"
+      xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>制作选项卡</title>
+    <script src="../../src/vue.js"></script>
+    <style>
+        .inputStyle{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<div id = "app">
+    <input type="button"
+    v-for="item,i in tabHandle"
+    v-bind:value="item.title"
+    v-bind:class="{inputStyle: i=== index}"
+    v-on:click="change(i)"
+    >
+    <div
+    v-for="item, j in tabHandle"
+    v-bind:style="{display:j===index?'block':'none'}"
+    >
+    <p
+    v-for="inputItem in item.list"
+    > {{inputItem.subTitle}}</p>
+    </div>
+</div>
+<script>
+    /*
+    * 可控制class
+    *   v-bind:class="{class名字：表达式}"
+    *   表达式为true就添加样式，为false则忽略
+    *
+    * 控制style
+    *   v-bind:style="{样式名：样式值}"
+    *
+    * vue事件
+    *   语法： v-on:事件名='事件处理函数'
+    *
+    *   传参
+    *   语法：　v-on:事件名='事件处理函数(参数)'
+    * */
+    let tabHandle = [
+        {
+            title:"模块一",
+            list:[
+                {
+                    subTitle:"数据一"
+                },
+                {
+                    subTitle:"数据二"
+                },
+                {
+                    subTitle:"数据三"
+                }
+
+            ]
+        }, {
+            title:"模块二",
+            list:[
+                {
+                    subTitle:"数据四"
+                },
+                {
+                    subTitle:"数据五"
+                },
+                {
+                    subTitle:"数据六"
+                }
+
+            ]
+        }, {
+            title:"模块三",
+            list:[
+                {
+                    subTitle:"数据七"
+                },
+                {
+                    subTitle:"数据八"
+                },
+                {
+                    subTitle:"数据九"
+                }
+
+            ]
+        },
+    ];
+    let vm = new Vue({
+        el:"#app",
+        data:{
+            tabHandle:tabHandle,
+            index:0
+        },
+        methods:{
+            change(i){
+                this.index = i;
+            }
+        }
+    })
+</script>
+</body>
+</html>
