@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>计算属性</title>
+    <style>
+        div,ul{
+            margin: 0;
+            border: 0;
+            padding: 0;
+
+        }
+        ul{
+            font-size: 0;
+        }
+
+        .network{
+            width: 100vw;
+            height: 100vh;
+            background-color: #28a5c4;
+            /*position: relative;*/
+            overflow: hidden;
+        }
+
+        .top{
+            position: absolute;
+            height: 200px;
+        }
+
+        .left{
+            width: 40%;
+            background-color: red;
+
+        }
+        .center{
+            width: 20%;
+            background-color: bisque;
+
+        }
+        .right{
+            width: 40%;
+        }
+
+        .top li{
+            display: inline ;
+            height: 80%;
+        }
+
+        .network-center{
+            width: 100%;
+            position: relative;
+            background-color: orange;
+            height: 60%;
+            margin-top: 100px;
+            overflow: hidden;
+        }
+
+        .bg-left{
+            position: absolute;
+            width: 20%;
+            float: left;
+            left: 0;
+            top: 0;
+            overflow: hidden;
+        }
+        .bg-right{
+            position: absolute;
+            overflow: hidden;
+            float: right;
+            width: 20%;
+            right: 0;
+            top:0;
+        }
+        .bg-foot{
+            position: absolute;
+
+            background-color: #8a8a8a;
+            height: 200px;
+            width: 20%;
+            float: bottom;
+            left: 40%;
+            top: 80%;
+        }
+        .bg-network{
+            width: 50%;
+            height: 50%;
+            background-color: black;
+            position: absolute;
+            float: left;
+            overflow: hidden;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+        .network-footer{
+            background-color: lightgray;
+            height: 200px;
+            position: relative;
+        }
+        .bg-footer{
+            position: absolute;
+            height: 40px;
+            width:20%;
+            margin-top: 0;
+            margin-left: 40%;
+            background-color: red;
+        }
+        .network-footer li{
+            display: inline;
+            font-size: 20px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="network">
+
+    <div class="top">
+        <ul>
+            <li><img src="../example/筛选商品/img/nav_bg.png" class="left" /></li>
+            <li><img src="../example/筛选商品/img/nav_bg.png" class="center" /></li>
+            <li><img src="../example/筛选商品/img/nav_bg.png" class="right"/></li>
+        </ul>
+
+    </div>
+
+    <div class="network-center">
+        <div class="bg-left">
+            <img src="../example/筛选商品/img/nav_bg.png" />
+        </div>
+        <div class="bg-network">
+
+        </div>
+        <div class="bg-right">
+            <img src="../example/筛选商品/img/nav_bg.png" />
+
+        </div>
+        <div class="bg-foot">
+
+        </div>
+    </div>
+    <div clear="both"></div>
+    <div class="network-footer">
+            <div class="bg-footer">
+                <ul>
+                    <li>hhhhhhhhhhh</li>
+                    <li>2</li>
+                    <li>3</li>
+                </ul>
+            </div>
+    </div>
+
+</div>
+
+</body>
+</html>
