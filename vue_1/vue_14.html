@@ -7,6 +7,7 @@
 </head>
 <body>
 <div id="app">
+    <input type="text" v-model="message">
     <p>{{message}}</p>
     <p>{{reverseMeseage}}</p>
     <p>{{reverseMeseage}}</p>
@@ -22,6 +23,8 @@
         计算属性挂载在实例上，计算属性对应的函数指向实例(vm)
 
         好处：将数值执行一次后，存储在模板缓存中，模板可以重复使用
+
+        计算属性的值依赖data中的数据，当data中的数据发生变化，计算属性的值会发生改变
     * */
 
 
@@ -32,7 +35,7 @@
         },
         computed:{
             reverseMeseage(){
-                console.log("执行一次")
+                console.log("执行一次");
 
                 return this.message.split("").reverse().join("");
             }
